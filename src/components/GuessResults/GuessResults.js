@@ -13,7 +13,7 @@ function GuessResults({guesses}) {
         <>
         {range(0,NUM_OF_GUESSES_ALLOWED).map((num)=> {
           return(
-            <Guess guess={guesses[num]}/>
+            <Guess key={num} guess={guesses[num]}/>
           )
         })}
         
