@@ -17,7 +17,6 @@ function Game() {
     const newGuess = {
       name: guess,
       key: crypto.randomUUID(),
-      checkedGuess: checkGuess(guess, answer)
     }
     setGuesses([...guesses, newGuess])
   }
@@ -25,7 +24,7 @@ function Game() {
   return (
     <>
     <GuessInput handleSubmitGuess={handleSubmitGuess}/>
-    <GuessResults guesses={guesses}/>
+    <GuessResults guesses={guesses} answer={answer}/>
     </>
   );
 }
