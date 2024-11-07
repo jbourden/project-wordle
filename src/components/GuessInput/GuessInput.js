@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GuessInput({guesses, setGuesses}) {
+function GuessInput({handleSubmitGuess}) {
   const [guess,setGuess] = React.useState('')
 
   const handleSubmit= ()=> {
@@ -9,12 +9,7 @@ function GuessInput({guesses, setGuesses}) {
     //   window.alert('You win')
     // }
     
-    const newGuess = {
-      name: guess,
-      key: crypto.randomUUID()
-    }
-    const newGuessesArr = [...guesses, newGuess]
-    setGuesses(newGuessesArr)
+    handleSubmitGuess(guess)
     setGuess('')
   }
 

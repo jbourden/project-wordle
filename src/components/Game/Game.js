@@ -12,9 +12,19 @@ console.info({ answer });
 
 function Game() {
   const [guesses, setGuesses] = React.useState([])
+
+  const handleSubmitGuess = (guess) => {
+    const newGuess = {
+      name: guess,
+      key: crypto.randomUUID()
+    }
+    setGuesses([...guesses, newGuess])
+  }
+
+
   return (
     <>
-    <GuessInput guesses={guesses} setGuesses={setGuesses}/>
+    <GuessInput handleSubmitGuess={handleSubmitGuess}/>
     <GuessResults guesses={guesses}/>
     </>
   );
