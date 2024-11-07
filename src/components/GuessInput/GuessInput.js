@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GuessInput() {
+function GuessInput({guesses, setGuesses}) {
   const [guess,setGuess] = React.useState('')
 
   const handleSubmit= ()=> {
@@ -8,6 +8,13 @@ function GuessInput() {
     // if(guess.toUpperCase()===answer){
     //   window.alert('You win')
     // }
+    
+    const newGuess = {
+      name: guess,
+      key: crypto.randomUUID()
+    }
+    const newGuessesArr = [...guesses, newGuess]
+    setGuesses(newGuessesArr)
     setGuess('')
   }
 
@@ -26,7 +33,7 @@ function GuessInput() {
     minLength={5}
     maxLength={5}
     pattern="[A-Za-z]{5}"
-    onChange={(event)=> setGuess(event.target.value)}
+    onChange={(event)=> setGuess(event.target.value.toUpperCase())}
      />
 </form>);
 }
