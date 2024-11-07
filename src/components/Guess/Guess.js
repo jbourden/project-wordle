@@ -10,7 +10,7 @@ function Guess({guess}) {
 
     range(0,5).map((num) => {
       return(
-        <span key={num} className={'cell ' + guess?.checkedGuess[num].status}>{guess ? guess.name[num] : undefined}</span>
+        <span key={num} className={guess ? 'cell ' + guess?.checkedGuess[num]?.status : 'cell'}>{guess ? guess.name[num] : undefined}</span>
       )
     })}
     </p>);
