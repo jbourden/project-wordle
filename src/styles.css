@@ -40,6 +40,23 @@ button {
   color: inherit;
 }
 
+button.reset {
+  max-height: 125px;
+  flex: 1;
+  padding: 1em;
+  background: #e8e4cd;
+  text-align: center;
+  font-size: 125%;
+  font-weight: 900;
+  color: #2b2b2b;
+  transition-property: -moz-filter, -ms-filter, -o-filter, -webkit-filter, filter;
+  transition-duration: 0.31s;
+}
+
+button.reset:hover {
+  filter: brightness(85%);
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;

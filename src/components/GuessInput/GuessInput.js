@@ -1,14 +1,9 @@
 import React from 'react';
 
-function GuessInput({handleSubmitGuess}) {
+function GuessInput({handleSubmitGuess, gameStatus}) {
   const [guess,setGuess] = React.useState('')
 
-  const handleSubmit= ()=> {
-    console.log(guess.toUpperCase())
-    // if(guess.toUpperCase()===answer){
-    //   window.alert('You win')
-    // }
-    
+  const handleSubmit= ()=> {    
     handleSubmitGuess(guess)
     setGuess('')
   }
@@ -22,6 +17,8 @@ function GuessInput({handleSubmitGuess}) {
   <label 
     htmlFor="guess-input">Enter guess, sure:</label>
   <input 
+    required
+    disabled={gameStatus !== 'running'}
     id="guess-input" 
     type="text"
     value={guess}
